@@ -2,7 +2,7 @@ package com.edwardjones.codefest.goalbackend
 
 import com.edwardjones.codefest.goalbackend.model.CalcInput
 import com.edwardjones.financialassessment.calculators.contributionanalyzer.ContributionAnalysisSummary
-import com.edwardjones.financialassessment.calculators.contributionanalyzer.ContributionAnalzyer
+import com.edwardjones.financialassessment.calculators.contributionanalyzer.ContributionAnalyzer
 
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -15,7 +15,7 @@ class GoalBackendController {
 
     @PostMapping("/calc")
     fun calculateGoalProjection(@RequestBody input : CalcInput) : Mono<ContributionAnalysisSummary> {
-        var result = ContributionAnalzyer().analyzeContributionAmt(input.amount.toDouble())
+        var result = ContributionAnalyzer().analyzeContributionAmt(input.amount.toDouble())
         return Mono.just(result)
     }
 }
